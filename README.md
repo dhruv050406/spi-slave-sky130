@@ -1,6 +1,6 @@
 <div align="center">
 
-#  SPI Slave — RTL to GDSII
+#  SPI Slave: RTL to GDSII
 ### Full Physical Design Implementation on SkyWater 130nm
 
 [![Process](https://img.shields.io/badge/Process-SkyWater%20130nm-blue?style=for-the-badge)](https://github.com/google/skywater-pdk)
@@ -16,9 +16,9 @@
 
 ## What is this?
 
-SPI (Serial Peripheral Interface) is one of the most widely used communication protocols in embedded systems — enabling synchronous, full-duplex data exchange between a master controller and peripherals like sensors, ADCs, displays, and flash memory.
+SPI (Serial Peripheral Interface) is one of the most widely used communication protocols in embedded systems, enabling synchronous, full-duplex data exchange between a master controller and peripherals like sensors, ADCs, displays, and flash memory.
 
-This project implements the **slave-side silicon block** — taken all the way from RTL description through synthesis, placement, routing, and clock tree construction to a final GDSII file ready for fabrication.
+This project implements the **slave-side silicon block** taken all the way from RTL description through synthesis, placement, routing, and clock tree construction to a final GDSII file ready for fabrication.
 
 ---
 
@@ -85,9 +85,9 @@ spi-slave-sky130/
 ## Implementation Details
 
 ### Synthesis & Floorplanning
-Behavioral Verilog was synthesized and mapped to the Sky130 standard cell library via Yosys. The physical core was constrained to a **42 × 42 µm** bounding box, achieving **54% core utilization** — a density that balances area efficiency with sufficient routing track headroom to prevent congestion.
+Behavioral Verilog was synthesized and mapped to the Sky130 standard cell library via Yosys. The physical core was constrained to a **42 × 42 µm** bounding box, achieving **54% core utilization**  with a density that balances area efficiency with sufficient routing track headroom to prevent congestion.
 
-> 💡 *54% is the practical sweet spot for OpenROAD on Sky130 — high enough to be area-efficient, low enough for the router to find clean paths without detour inflation blowing up timing.*
+> 💡 *54% is the practical sweet spot for OpenROAD on Sky130, high enough to be area-efficient, low enough for the router to find clean paths without detour inflation blowing up timing.*
 
 ### Clock Tree Synthesis
 TritonCTS constructed a balanced clock distribution network using dedicated `__clkbuf_` cells, minimizing skew across all pipeline registers and maintaining pulse integrity at every sequential element input.
@@ -99,7 +99,7 @@ A structured PDN was implemented with VDD/VSS straps across metal layers, mainta
 
 ## Post-Layout Results
 
-### Static Timing Analysis — Worst-Case Corner
+### Static Timing Analysis: Worst-Case Corner
 
 | Metric | Value | Notes |
 |---|---|---|
@@ -124,10 +124,10 @@ A structured PDN was implemented with VDD/VSS straps across metal layers, mainta
 ## Layout
 
 ### Full Die View
-![GDS Full Layout](screenshots/whole_spi.jpeg)
+![GDS Full Layout](Images/whole_spi.jpeg)
 
 ### Zoomed Cell-Level View
-![GDS Zoomed](screenshots/zoomed_spi.jpeg)
+![GDS Zoomed](Images/zoomed_spi.jpeg)
 
 *🔴 Red: M2/M3 routing layers · 🟢 Green: M1 / local interconnect · 🔵 Blue: diffusion / poly · Scale: 0–4 µm*
 
@@ -160,9 +160,9 @@ magic -T $PDK_ROOT/sky130A/libs.tech/magic/sky130A.tech \
 
 ## Key Takeaways
 
-Getting clean timing closure out of OpenROAD requires precise alignment between SDC constraints, Liberty timing files, and floorplan decisions — simultaneously. The automated flow surfaces problems in each layer independently, and iterating through them is where the real learning happens.
+Getting clean timing closure out of OpenROAD requires precise alignment between SDC constraints, Liberty timing files, and floorplan decisions simultaneously. The automated flow surfaces problems in each layer independently, and iterating through them is where the real learning happens.
 
-The 54% utilization was not arbitrary — it was arrived at through multiple floorplan iterations to find the density at which the router could close timing without congestion-driven detours inflating critical path delays.
+The 54% utilization was not arbitrary rather it was arrived at through multiple floorplan iterations to find the density at which the router could close timing without congestion-driven detours inflating critical path delays.
 
 ---
 
