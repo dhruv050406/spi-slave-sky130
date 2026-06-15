@@ -115,13 +115,13 @@ A structured PDN was implemented with VDD/VSS straps across metal layers, mainta
 |---|---|
 | Die Area | 42 × 42 µm |
 | Core Utilization | 54% |
-| DRC Sign-off | 🔄 In Progress |
-| LVS Sign-off | 🔄 In Progress |
-| Power Analysis | 🔄 In Progress |
+| DRC Sign-off | In Progress |
+| LVS Sign-off | In Progress |
+| Power Analysis | In Progress |
 
 ---
 
-## 🖼️ Layout
+## Layout
 
 ### Full Die View
 ![GDS Full Layout](screenshots/whole_spi.jpeg)
