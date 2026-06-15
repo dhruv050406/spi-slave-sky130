@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔲 SPI Slave — RTL to GDSII
+#  SPI Slave — RTL to GDSII
 ### Full Physical Design Implementation on SkyWater 130nm
 
 [![Process](https://img.shields.io/badge/Process-SkyWater%20130nm-blue?style=for-the-badge)](https://github.com/google/skywater-pdk)
@@ -14,7 +14,7 @@
 
 ---
 
-## 📌 What is this?
+## What is this?
 
 SPI (Serial Peripheral Interface) is one of the most widely used communication protocols in embedded systems — enabling synchronous, full-duplex data exchange between a master controller and peripherals like sensors, ADCs, displays, and flash memory.
 
@@ -22,7 +22,7 @@ This project implements the **slave-side silicon block** — taken all the way f
 
 ---
 
-## ⚙️ Toolchain
+## Toolchain
 
 ```
 Behavioral Verilog
@@ -49,7 +49,7 @@ Behavioral Verilog
 
 ---
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```
 spi-slave-sky130/
@@ -82,7 +82,7 @@ spi-slave-sky130/
 
 ---
 
-## 🏗️ Implementation Details
+## Implementation Details
 
 ### Synthesis & Floorplanning
 Behavioral Verilog was synthesized and mapped to the Sky130 standard cell library via Yosys. The physical core was constrained to a **42 × 42 µm** bounding box, achieving **54% core utilization** — a density that balances area efficiency with sufficient routing track headroom to prevent congestion.
@@ -97,7 +97,7 @@ A structured PDN was implemented with VDD/VSS straps across metal layers, mainta
 
 ---
 
-## 📊 Post-Layout Results
+## Post-Layout Results
 
 ### Static Timing Analysis — Worst-Case Corner
 
@@ -124,16 +124,16 @@ A structured PDN was implemented with VDD/VSS straps across metal layers, mainta
 ## 🖼️ Layout
 
 ### Full Die View
-![GDS Full Layout](screenshots/whole_spi.png)
+![GDS Full Layout](screenshots/whole_spi.jpeg)
 
 ### Zoomed Cell-Level View
-![GDS Zoomed](screenshots/zoomed_spi.png)
+![GDS Zoomed](screenshots/zoomed_spi.jpeg)
 
 *🔴 Red: M2/M3 routing layers · 🟢 Green: M1 / local interconnect · 🔵 Blue: diffusion / poly · Scale: 0–4 µm*
 
 ---
 
-## 🚀 How to Reproduce
+## How to Reproduce
 
 ### Prerequisites
 - [OpenROAD-flow-scripts](https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts)
@@ -158,7 +158,7 @@ magic -T $PDK_ROOT/sky130A/libs.tech/magic/sky130A.tech \
 
 ---
 
-## 📖 Key Takeaways
+## Key Takeaways
 
 Getting clean timing closure out of OpenROAD requires precise alignment between SDC constraints, Liberty timing files, and floorplan decisions — simultaneously. The automated flow surfaces problems in each layer independently, and iterating through them is where the real learning happens.
 
@@ -166,7 +166,7 @@ The 54% utilization was not arbitrary — it was arrived at through multiple flo
 
 ---
 
-## 🔄 Roadmap
+## Roadmap
 
 - [x] RTL Design & Synthesis
 - [x] Floorplanning & Placement
