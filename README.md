@@ -141,7 +141,7 @@ Getting clean timing closure out of OpenROAD demands precise alignment between S
 
 ## Author
 
-**Dhruv** — Electrical & Electronics Engineering, VIT, Vellore (Batch 2024–2028)  
+**Dhruv Pradhan** — Electrical & Electronics Engineering, VIT, Vellore (Batch 2024–2028)  
 Electrical & Embedded Systems Engineer, Team RoverX · RTL / FPGA / ASIC Design
 
 [LinkedIn](https://www.linkedin.com/in/dhruvp546/) · [GitHub](https://github.com/dhruv050406)
